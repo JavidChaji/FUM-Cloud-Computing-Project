@@ -205,12 +205,12 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     * Downloading Database Image From Docker Hub
       - [ ] Downloading MySQL Image From Docker Hub
   - >*Note* : The Related image configuration must written in docker-compose.yml file and Have these four Features :
-        >1. >The Configuration file must be Stateful (Meaning that the data will be saved even if the container is removed)
-        >2. >Each container must use Limited amount of resources (Like: CPU, Memory, etc.)
-        >3. >For choosen database Define a separate username and password
-        >4. >Need to run automatically after each system restart.
-    - [ ] Downloading The Database Image From Docker Hub
-    - [ ] The Related image Configuration must write 
+      >1. >The Configuration file must be Stateful (Meaning that the data will be saved even if the container is removed)
+      >2. >Each container must use Limited amount of resources (Like: CPU, Memory, etc.)
+      >3. >For choosen database Define a separate username and password
+      >4. >Need to run automatically after each system restart.
+      - [ ] Downloading The Database Image From Docker Hub
+      - [ ] The Related image Configuration must write 
 4. >By using Pervious Step Dockerfile do the build opration note that both images must run together
     - [ ] Writing docker-compose.yml File 
 5. >Push the built image to Docker Hub
