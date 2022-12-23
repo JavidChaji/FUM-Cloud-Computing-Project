@@ -1,0 +1,18 @@
+FROM mysql:5.7
+
+# ARG database_root_password=ramz
+# ARG database_name=sakila
+# ARG database_user=sakila_app
+# ARG database_port=3306
+
+# ENV MYSQL_ROOT_PASSWORD = $database_root_password
+# ENV MYSQL_DATABASE = $database_name
+# ENV MYSQL_USER = $database_user
+# ENV MYSQL_PASSWORD = $database_root_password
+
+COPY ./sakila-db/sakila-schema.sql /docker-entrypoint-initdb.d/step_1.sql
+COPY ./sakila-db/sakila-data.sql /docker-entrypoint-initdb.d/step_2.sql
+COPY ./sakila-db/sakila-creation-massage.sql /docker-entrypoint-initdb.d/step_3.sql
+
+
+# EXPOSE $database_port
