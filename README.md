@@ -18,13 +18,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/javidchaji/Cloud-Computing-Project">
-    <img src="images/Docker-Logo.png" alt="Logo" height="80">
+    <img src="images/Docker-Logo.png" alt="Docker-Logo" height="80">
   </a>
   <a href="https://github.com/javidchaji/Cloud-Computing-Project">
-    <img src="images/Docker-Compose-Logo.png" alt="Logo" height="80">
+    <img src="images/Docker-Compose-Logo.png" alt="Docker-Compose-Logo" height="80">
   </a>
   <a href="https://github.com/javidchaji/Cloud-Computing-Project">
-    <img src="images/Kubernetes-Logo.png" alt="Logo" height="80">
+    <img src="images/Kubernetes-Logo.png" alt="Kubernetes-Logo" height="80">
   </a>
 
   <h2 align="center">Cloud Computing Project</h2>
@@ -204,7 +204,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
     * **MySQL** is the one we are going to use in this project.
     * Downloading Database Image From Docker Hub
       - [ ] Downloading MySQL Image From Docker Hub
-  - >*Note* : The Related image configuration must written in docker-compose.yml file and Have these four Features :
+  - >*Note* : The related image configuration must written in docker-compose.yml file that have these four features :
       >1. >The Configuration file must be Stateful (Meaning that the data will be saved even if the container is removed)
       >2. >Each container must use Limited amount of resources (Like: CPU, Memory, etc.)
       >3. >For choosen database Define a separate username and password
