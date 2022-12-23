@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% for id, country, last_update in country %}
+		<form action="{{ update_country_save_link }}" method="post">
+			<input type="hidden" name="id" value="{{ id }}">
+			<p>
+				Country<br>
+				<input name="country" value="{{ country }}">
+			</p>
+			<p>
+				<input type="submit" value="Update Country">
+			</p>
+		</form>
+		<form action="{{ show_country_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Show</button></form>
+		<form action="{{ index_country_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

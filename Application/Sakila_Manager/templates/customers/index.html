@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block body %}
+	<table>
+		<thead>
+			<tr>
+				<th>Store Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Address Id</th>
+				<th>Active</th>
+				<th>Create Date</th>
+				<th>Last Update</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for id, store_id, first_name, last_name, email, address_id, active, create_date, last_update in customers %}
+				<tr>
+					<td>{{ store_id }}</td>
+					<td>{{ first_name }}</td>
+					<td>{{ last_name }}</td>
+					<td>{{ email }}</td>
+					<td>{{ address_id }}</td>
+					<td>{{ active }}</td>
+					<td>{{ create_date }} UTC</td>
+					<td>{{ last_update }} UTC</td>
+					<td><form action="{{ show_customer_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Show"></form></td>
+					<td><form action="{{ update_customer_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Edit"></form></td>
+					<td><form action="{{ delete_customer_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Destroy"></form></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br>
+	<a href="{{ create_customer_link }}">New Customer</a>
+{% endblock %}

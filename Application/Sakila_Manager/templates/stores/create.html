@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<form action="{{ save_store_link }}" method="post">
+		<p>
+			Address Id:<br>
+			<input name="address_id">
+		</p>
+		<p>
+			<input type="submit" value="Create Store">
+		</p>
+	</form>
+	<a href="{{ index_store_link }}">Back</a>
+{% endblock %}

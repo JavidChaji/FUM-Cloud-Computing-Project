@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% for id, film_id, store_id, last_update in inventory %}
+		<p>
+			<strong>Film Id:</strong>
+			{{ film_id }}
+		</p>
+		<p>
+			<strong>Store Id:</strong>
+			{{ store_id }}
+		</p>
+		<p>
+			<strong>Last update:</strong>
+			{{ last_update }} UTC
+		</p>
+
+		<form action="{{ update_inventory_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Edit</button></form>
+		<form action="{{ index_inventory_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

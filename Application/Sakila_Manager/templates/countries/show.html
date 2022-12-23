@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% for id, country, last_update in country %}
+		<p>
+			<strong>Country:</strong>
+			{{ country }}
+		</p>
+		<p>
+			<strong>Last update:</strong>
+			{{ last_update }} UTC
+		</p>
+
+		<form action="{{ update_country_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Edit</button></form>
+		<form action="{{ index_country_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

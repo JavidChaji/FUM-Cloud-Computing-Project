@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% for id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features, last_update in film %}
+		<form action="{{ update_film_save_link }}" method="post">
+			<input type="hidden" name="id" value="{{ id }}">
+			<p>
+				Title<br>
+				<input name="title" value="{{ title }}">
+			</p>
+			<p>
+				Description<br>
+				<input name="description" value="{{ description }}">
+			</p>
+			<p>
+				Release year<br>
+				<input name="release_year" value="{{ release_year }}">
+			</p>
+			<p>
+				Language id<br>
+				<input name="language_id" value="{{ language_id }}">
+			</p>
+			<p>
+				Rental duration<br>
+				<input name="rental_duration" value="{{ rental_duration }}">
+			</p>
+			<p>
+				Rental rate<br>
+				<input name="rental_rate" value="{{ rental_rate }}">
+			</p>
+			<p>
+				Length<br>
+				<input name="length" value="{{ length }}">
+			</p>
+			<p>
+				Replacement cost<br>
+				<input name="replacement_cost" value="{{ replacement_cost }}">
+			</p>
+			<p>
+				Rating<br>
+				<input name="rating" value="{{ rating }}">
+			</p>
+			<p>
+				Special features<br>
+				<input name="special_features" value="{{ special_features }}">
+			</p>
+			<p>
+				<input type="submit" value="Update Film">
+			</p>
+		</form>
+		<form action="{{ show_film_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Show</button></form>
+		<form action="{{ index_film_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

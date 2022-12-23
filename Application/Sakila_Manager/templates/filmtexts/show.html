@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% for id, title, description in filmtext %}
+		<p>
+			<strong>Title:</strong>
+			{{ title }}
+		</p>
+		<p>
+			<strong>Description:</strong>
+			{{ description }}
+		</p>
+
+		<form action="{{ update_filmtext_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Edit</button></form>
+		<form action="{{ index_filmtext_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

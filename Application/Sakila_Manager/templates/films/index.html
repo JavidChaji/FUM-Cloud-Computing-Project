@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block body %}
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Release year</th>
+				<th>Language id</th>
+				<th>Rental duration</th>
+				<th>Rental rate</th>
+				<th>Length</th>
+				<th>Replacement cost</th>
+				<th>Rating</th>
+				<th>Special features</th>
+				<th>Last updated</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features, last_update in films %}
+				<tr>
+					<td>{{ title }}</td>
+					<td>{{ description }}</td>
+					<td>{{ release_year }}</td>
+					<td>{{ language_id }}</td>
+					<td>{{ rental_duration }}</td>
+					<td>{{ rental_rate }}</td>
+					<td>{{ length }}</td>
+					<td>{{ replacement_cost }}</td>
+					<td>{{ rating }}</td>
+					<td>{{ special_features }}</td>
+					<td>{{ last_update }} UTC</td>
+					<td><form action="{{ show_film_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Show"></form></td>
+					<td><form action="{{ update_film_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Edit"></form></td>
+					<td><form action="{{ delete_film_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Destroy"></form></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br>
+	<a href="{{ create_film_link }}">New Film</a>
+{% endblock %}
