@@ -48,6 +48,8 @@ services:
       - 5000
     ports:
       - "5000:5000"
+    volumes:
+      - ./Application/Sakila_Manager/Download_Folder:/usr/src/app/Download_Folder
     networks:
       - reverse-proxy-network
       - db-network
