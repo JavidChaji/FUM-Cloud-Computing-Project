@@ -1,0 +1,145 @@
+version: '3.9'
+services:
+  
+  #Ping Pong Application
+  ping_pong_application:
+    build:
+      context: ./Application/Ping_Pong_Application
+      dockerfile: Ping_Pong_Application_Dockerfile
+      # args:
+      #   ping_pong_application_port: 8000
+    container_name: ping_pong_application 
+    restart: unless-stopped
+    tty: true
+    expose:
+      - 8000
+    ports:
+      - "8000:8000"
+    networks:
+      - reverse-proxy-network
+    deploy:
+      resources:
+        limits:
+        #(50% of a single core) of available processing time (CPU)
+          cpus: '0.50'
+        # to use no more than 50M of memory (RAM)
+          memory: 50M
+        reservations:
+        # CPU time reserved for the container
+          cpus: '0.25'
+        # 20M of memory
+          memory: 20M
+
+  #Sakila Manager Application
+  sakila_manager:
+    build:
+      context: ./Application/Sakila_Manager
+      dockerfile: Sakila_Manager_Dockerfile
+      # args:
+        # sakila_manager_port: 5000
+    container_name: sakila_manager 
+    links:
+      - database:database
+    depends_on:
+      - database
+    restart: unless-stopped
+    tty: true
+    expose:
+      - 5000
+    ports:
+      - "5000:5000"
+    networks:
+      - reverse-proxy-network
+      - db-network
+    deploy:
+      resources:
+        limits:
+        #(100% of a single core) of available processing time (CPU)
+          cpus: '1'
+        # to use no more than 1000M of memory (RAM)
+          memory: 1000M
+        reservations:
+        # CPU time reserved for the container
+          cpus: '0.25'
+        # 500M of memory
+          memory: 500M
+
+
+  #Nginx Service
+  reverse_proxy:
+    build:
+      context: ./Reverse_Proxy
+      dockerfile: Reverse_Proxy_Dockerfile
+      # args:
+        # reverse_proxy_main_port: 80
+        # reverse_proxy_port_one: 9001
+        # reverse_proxy_port_two: 9002
+    depends_on:
+      - database
+      - ping_pong_application
+      - sakila_manager
+    container_name: reverse_proxy
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "9001:9001"
+      - "9002:9002"
+    volumes:
+      - ./Reverse_Proxy/nginx.conf:/etc/nginx/nginx.conf
+      - ./Reverse_Proxy/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./Reverse_Proxy/conf.d/ping_pong.conf:/etc/nginx/conf.d/ping_pong.conf
+      - ./Reverse_Proxy/conf.d/sakila_manager.conf:/etc/nginx/conf.d/sakila_manager.conf
+    networks:
+      - reverse-proxy-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+
+
+  #MySQL Database Service
+  database:
+    build:
+      context: ./Database
+      dockerfile: Database_Dockerfile
+      # args:
+        # database_root_password: ramz
+        # database_name: sakila
+        # database_user: sakila_app
+        # database_port: 3306
+    container_name: sakila_database
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: sakila
+      MYSQL_USER: sakila_app
+      MYSQL_PASSWORD: ramz
+      MYSQL_ROOT_PASSWORD: ramz
+    tty: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./Database/database_volume:/var/lib/mysql/
+    networks:
+      - db-network
+    deploy:
+      resources:
+        reservations:
+          cpus: '2'
+          memory: 200M
+
+#Docker Networks
+networks:
+  reverse-proxy-network:
+    driver: bridge
+  db-network:
+    driver: bridge
+
+#Volumes
+
+
+
