@@ -1087,11 +1087,11 @@ def show_store():
 app.config['SECRET_KEY'] = 'thisismysecretkeywhichyouwillneverguesshahahahahahahahaha'
 
 if __name__ == "__main__":
-	app.config['DB_HOST'] = '127.0.0.1'
+	app.config['DB_HOST'] = 'database'
 	app.config['DB_USER'] = "sakila_app"
 	app.config['DB_PASSWORD'] = "ramz"
 	app.config['DB'] = "sakila"
-	app.run()
+	app.run(host='0.0.0.0',port=5000)
 
 
 

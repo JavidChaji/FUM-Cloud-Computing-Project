@@ -12,9 +12,9 @@ COPY . .
 
 EXPOSE $sakila_manager_port
 
-# CMD ["python", "-m", "flask", "--app", "main.py", "run" , "--host=0.0.0.0", "--port=5000"]
 
-# CMD ["python", "./main.py"]
+CMD ["python", "./main.py"]
 
 # CMD [ "python", "-m", "gunicorn", "--bind", "0.0.0.0:5000", "main:app" ]
+# CMD ["python", "-m", "flask", "--app", "main.py", "run" , "--host=0.0.0.0", "--port=5000"]
 
