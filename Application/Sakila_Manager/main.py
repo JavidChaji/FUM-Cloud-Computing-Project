@@ -1,12 +1,13 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
+from flask import Flask, render_template, request, send_from_directory, url_for, redirect, flash
 import datetime
 from MyUtils import UseDatabase
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return(render_template('index.html', heading="Index page", index_actor_link=url_for("actors_index"), index_address_link=url_for("addresses_index"), index_category_link=url_for("categories_index"), index_city_link=url_for("cities_index"), index_country_link=url_for("countries_index"), index_customer_link=url_for("customers_index"), index_film_link=url_for("films_index"), index_filmtext_link=url_for("filmtexts_index"), index_inventory_link=url_for("inventories_index"), index_language_link=url_for("languages_index"), index_payment_link=url_for("payments_index"), index_rental_link=url_for("rentals_index"), index_staff_link=url_for("staffs_index"), index_store_link=url_for("stores_index")))
+	return(render_template('index.html', heading="Index page", index_actor_link=url_for("actors_index"), index_address_link=url_for("addresses_index"), index_category_link=url_for("categories_index"), index_city_link=url_for("cities_index"), index_country_link=url_for("countries_index"), index_customer_link=url_for("customers_index"), index_film_link=url_for("films_index"), index_filmtext_link=url_for("filmtexts_index"), index_inventory_link=url_for("inventories_index"), index_language_link=url_for("languages_index"), index_payment_link=url_for("payments_index"), index_rental_link=url_for("rentals_index"), index_staff_link=url_for("staffs_index"), index_store_link=url_for("stores_index"), index_download_link=url_for("download_index")))
 
 # =============================================================================================
 # ACTORS
@@ -83,6 +84,24 @@ def show_actor():
 		cursor.execute(SQL, (request.form['id'],))
 		actor_info = cursor.fetchall()
 	return(render_template('/actors/show.html', actor=actor_info, index_actor_link=url_for("actors_index"), update_actor_link=url_for("update_actor")))
+
+# =============================================================================================
+# DOWNLOAD
+# =============================================================================================
+
+# DOWNLOAD INDEX
+@app.route('/download/index', methods=['GET', 'POST'])
+def download_index():
+	path = '/usr/src/app/Download_Folder'
+	os.chdir(path)
+	download_list = os.listdir()
+	# return(render_template('/download/index.html', heading="Listing download folder content", downloads=download_list, show_download_link=url_for("show_download"), update_download_link=url_for("update_download"), delete_download_link=url_for("delete_download"), create_download_link=url_for("create_download")))
+	return(render_template('/download/index.html', heading="Listing download folder content", downloads=download_list, download_link=url_for("download_file")))
+
+# DOWNLOAD DELETE
+@app.route('/download/get', methods=['POST'])
+def download_file():
+	return(send_from_directory('/usr/src/app/Download_Folder', request.form['download'], as_attachment=True))
 
 # =============================================================================================
 # ADDRESSES
@@ -1068,7 +1087,7 @@ def show_store():
 app.config['SECRET_KEY'] = 'thisismysecretkeywhichyouwillneverguesshahahahahahahahaha'
 
 if __name__ == "__main__":
-	app.config['DB_HOST'] = "127.0.0.1"
+	app.config['DB_HOST'] = '127.0.0.1'
 	app.config['DB_USER'] = "sakila_app"
 	app.config['DB_PASSWORD'] = "ramz"
 	app.config['DB'] = "sakila"

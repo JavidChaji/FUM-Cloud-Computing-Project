@@ -5,12 +5,16 @@ ARG sakila_manager_port=5000
 WORKDIR /usr/src/app
 
 COPY requirements.txt ./
+
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
 EXPOSE $sakila_manager_port
 
-CMD [ "python", "./main.py" ]
+# CMD ["python", "-m", "flask", "--app", "main.py", "run" , "--host=0.0.0.0", "--port=5000"]
 
+# CMD ["python", "./main.py"]
+
+# CMD [ "python", "-m", "gunicorn", "--bind", "0.0.0.0:5000", "main:app" ]
 

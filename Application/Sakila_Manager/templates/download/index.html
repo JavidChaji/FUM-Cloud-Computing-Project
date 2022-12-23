@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	<dev>
+		{% for download in downloads %}
+			<dev>
+				<dev><form action="{{ download_link }}" method="POST"><input type="hidden" name="download" value="{{ download }}"><input type="submit" value="Download">	{{ download }}</form></dev>
+			</dev>
+		{% endfor %}
+	</dev>
+
+
+	<br>
+{% endblock %}
