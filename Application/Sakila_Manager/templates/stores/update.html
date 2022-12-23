@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% for id, address_id, last_update in store %}
+		<form action="{{ update_store_save_link }}" method="post">
+			<input type="hidden" name="id" value="{{ id }}">
+			<p>
+				Address Id<br>
+				<input name="address_id" value="{{ address_id }}">
+			</p>
+			<p>
+				<input type="submit" value="Update Store">
+			</p>
+		</form>
+		<form action="{{ show_store_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Show</button></form>
+		<form action="{{ index_store_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<form action="{{ save_customer_link }}" method="post">
+		<p>
+			Store id:<br>
+			<input name="store_id">
+		</p>
+		<p>
+			First name:<br>
+			<input name="first_name">
+		</p>
+		<p>
+			Last name:<br>
+			<input name="last_name">
+		</p>
+		<p>
+			Email:<br>
+			<input name="email">
+		</p>
+		<p>
+			Address id:<br>
+			<input name="address_id">
+		</p>
+		<p>
+			Active:<br>
+			<input type="checkbox" name="active">
+		</p>
+		<p>
+			<input type="submit" value="Create Customer"/>
+		</p>
+
+	</form>
+	<a href="{{ index_customer_link }}">Back</a>
+{% endblock %}

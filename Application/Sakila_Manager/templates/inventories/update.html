@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% for id, film_id, store_id, last_update in inventory %}
+		<form action="{{ update_inventory_save_link }}" method="post">
+			<input type="hidden" name="id" value="{{ id }}">
+			<p>
+				Film Id<br>
+				<input name="film_id" value="{{ film_id }}">
+			</p>
+			<p>
+				Store Id<br>
+				<input name="store_id" value="{{ store_id }}">
+			</p>
+			<p>
+				<input type="submit" value="Update Inventory">
+			</p>
+		</form>
+		<form action="{{ show_inventory_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Show</button></form>
+		<form action="{{ index_inventory_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<form action="{{ save_actor_link }}" method="post">
+		<p>
+			First Name:<br>
+			<input name="first_name">
+		</p>
+		<p>
+			Last Name:<br>
+			<input name="last_name">
+		</p>
+		<p>
+			<input type="submit" value="Create Actor"/>
+		</p>
+	</form>
+	<a href="{{ index_actor_link }}">Back</a>
+{% endblock %}

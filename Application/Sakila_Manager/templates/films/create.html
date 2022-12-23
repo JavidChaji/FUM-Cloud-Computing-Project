@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<form action="{{ save_film_link }}" method="post">
+		<p>
+			Title:<br>
+			<input name="title">
+		</p>
+		<p>
+			Description:<br>
+			<input name="description">
+		</p>
+		<p>
+			Release year:<br>
+			<input name="release_year">
+		</p>
+		<p>
+			Language id:<br>
+			<input name="language_id">
+		</p>
+		<p>
+			Rental duration:<br>
+			<input name="rental_duration">
+		</p>
+		<p>
+			Rental rate:<br>
+			<input name="rental_rate">
+		</p>
+		<p>
+			Length:<br>
+			<input name="length">
+		</p>
+		<p>
+			Replacement cost:<br>
+			<input name="replacement_cost">
+		</p>
+		<p>
+			Rating:<br>
+			<input name="rating">
+		</p>
+		<p>
+			Special features:<br>
+			<input name="special_features">
+		</p>
+		<p>
+			<input type="submit" value="Create Film"/>
+		</p>
+	</form>
+	<a href="{{ index_film_link }}">Back</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% for id, first, last, last_update in actor %}
+		<p>
+			<strong>First Name:</strong>
+			{{ first }}
+		</p>
+		<p>
+			<strong>Last Name</strong>
+			{{ last }}
+		</p>
+		<p>
+			<strong>Last update:</strong>
+			{{ last_update }} UTC
+		</p>
+
+		<form action="{{ update_actor_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Edit</button></form>
+		<form action="{{ index_actor_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

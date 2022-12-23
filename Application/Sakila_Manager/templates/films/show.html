@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% for id, title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating, special_features, last_update in film %}	
+		<p>
+			<strong>Title</strong>
+			{{ title }}
+		</p>
+		<p>
+			<strong>Description</strong>
+			{{ description }}
+		</p>
+		<p>
+			<strong>Release year</strong>
+			{{ release_year }}
+		</p>
+		<p>
+			<strong>Language id</strong>
+			{{ language_id }}
+		</p>
+		<p>
+			<strong>Rental duration</strong>
+			{{ rental_duration }}
+		</p>
+		<p>
+			<strong>Rental rate</strong>
+			{{ rental_rate }}
+		</p>
+		<p>
+			<strong>Length</strong>
+			{{ length }}
+		</p>
+		<p>
+			<strong>Replacement cost</strong>
+			{{ replacement_cost }}
+		</p>
+		<p>
+			<strong>Rating</strong>
+			{{ rating }}
+		</p>
+		<p>
+			<strong>Special features</strong>
+			{{ special_features }}
+		</p>
+		<p>
+			<strong>Last update:</strong>
+			{{ last_update }} UTC
+		</p>
+
+		<form action="{{ update_film_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Edit</button></form>
+		<form action="{{ index_film_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

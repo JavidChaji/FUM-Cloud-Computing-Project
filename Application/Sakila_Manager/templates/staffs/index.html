@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block body %}
+	<table>
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Address id</th>
+				<th>Email</th>
+				<th>Store id</th>
+				<th>Active</th>
+				<th>Username</th>
+				<th>Password</th>
+				<th>Last updated</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for id, first_name, last_name, address_id, email, store_id, active, username, password, last_update in staffs %}
+				<tr>
+					<td>{{ first_name }}</td>
+					<td>{{ last_name }}</td>
+					<td>{{ address_id }}</td>
+					<td>{{ email }}</td>
+					<td>{{ store_id }}</td>
+					<td>{{ active }}</td>
+					<td>{{ username }}</td>
+					<td>{{ password }}</td>
+					<td>{{ last_update }} UTC</td>
+					<td><form action="{{ show_staff_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Show"></form></td>
+					<td><form action="{{ update_staff_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Edit"></form></td>
+					<td><form action="{{ delete_staff_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Destroy"></form></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br>
+	<a href="{{ create_staff_link }}">New Staff</a>
+{% endblock %}

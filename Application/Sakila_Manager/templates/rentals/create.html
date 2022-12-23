@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<form action="{{ save_rental_link }}" method="post">
+		<p>
+			Inventory id:<br>
+			<input name="inventory_id">
+		</p>
+		<p>
+			Customer id:<br>
+			<input name="customer_id">
+		</p>
+		<p>
+			Staff Id:<br>
+			<input name="staff_id">
+		</p>
+		<p>
+			<input type="submit" value="Create Rental"/>
+		</p>
+
+	</form>
+	<a href="{{ index_rental_link }}">Back</a>
+{% endblock %}

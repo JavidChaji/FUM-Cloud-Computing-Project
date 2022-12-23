@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for id, title, description in filmtexts %}
+				<tr>
+					<td>{{ title }}</td>
+					<td>{{ description }}</td>
+					<td><form action="{{ show_filmtext_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Show"></form></td>
+					<td><form action="{{ update_filmtext_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Edit"></form></td>
+					<td><form action="{{ delete_filmtext_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Destroy"></form></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br>
+	<a href="{{ create_filmtext_link }}">New Film Text</a>
+{% endblock %}

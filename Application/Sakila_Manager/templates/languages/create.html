@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<form action="{{ save_language_link }}" method="post">
+		<p>
+			Name:<br>
+			<input name="name">
+		</p>
+		<p>
+			<input type="submit" value="Create Language">
+		</p>
+	</form>
+	<a href="{{ index_language_link }}">Back</a>
+{% endblock %}

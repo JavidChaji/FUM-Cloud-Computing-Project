@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% for id, name, last_update in category %}
+		<form action="{{ update_category_save_link }}" method="post">
+			<input type="hidden" name="id" value="{{ id }}">
+			<p>
+				Name<br>
+				<input name="name" value="{{ name }}">
+			</p>
+			<p>
+				<input type="submit" value="Update Category">
+			</p>
+		</form>
+		<form action="{{ show_category_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Show</button></form>
+		<form action="{{ index_category_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

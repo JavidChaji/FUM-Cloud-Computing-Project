@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<form action="{{ save_country_link }}" method="post">
+		<p>
+			Country:<br>
+			<input name="country">
+		</p>
+		<p>
+			<input type="submit" value="Create Country">
+		</p>
+	</form>
+	<a href="{{ index_country_link }}">Back</a>
+{% endblock %}

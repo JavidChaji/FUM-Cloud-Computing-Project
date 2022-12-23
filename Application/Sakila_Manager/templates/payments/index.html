@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block body %}
+	<table>
+		<thead>
+			<tr>
+				<th>Customer Id</th>
+				<th>Staff Id</th>
+				<th>Rental Id</th>
+				<th>Amount</th>
+				<th>Payment Date</th>
+				<th>Last Update</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for id, customer_id, staff_id, rental_id, amount, payment_date, last_update in payments %}
+				<tr>
+					<td>{{ customer_id }}</td>
+					<td>{{ staff_id }}</td>
+					<td>{{ rental_id }}</td>
+					<td>{{ amount }}</td>
+					<td>{{ payment_date }} UTC</td>
+					<td>{{ last_update }} UTC</td>
+					<td><form action="{{ show_payment_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Show"></form></td>
+					<td><form action="{{ update_payment_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Edit"></form></td>
+					<td><form action="{{ delete_payment_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Destroy"></form></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br>
+	<a href="{{ create_payment_link }}">New Payment</a>
+{% endblock %}

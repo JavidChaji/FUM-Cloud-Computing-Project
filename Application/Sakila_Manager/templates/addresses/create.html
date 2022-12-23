@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<form action="{{ save_address_link }}" method="post">
+		<p>
+				Address:<br>
+				<input name="address">
+		</p>
+		<p>
+			District:<br>
+			<input name="district">
+		</p>
+		<p>
+			City Id:<br>
+			<input name="city_id">
+		</p>
+		<p>
+			Postal Code:<br>
+			<input name="postal_code">
+		</p>
+		<p>
+			Phone:<br>
+			<input name="phone">
+		</p>
+		<p>
+			<input type="submit" value="Create Address">
+		</p>
+	</form>
+	<a href="{{ index_address_link }}">Back</a>
+{% endblock %}

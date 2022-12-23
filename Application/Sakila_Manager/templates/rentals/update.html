@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% for id, rental_date, inventory_id, customer_id, return_date, staff_id, last_update in rental %}
+		<form action="{{ update_rental_save_link }}" method="post">
+			<input type="hidden" name="id" value="{{ id }}">
+			<p>
+				Inventory id<br>
+				<input name="inventory_id" value="{{ inventory_id }}">
+			</p>
+			<p>
+				Customer id<br>
+				<input name="customer_id" value="{{ customer_id }}">
+			</p>
+			<p>
+				Staff id<br>
+				<input name="staff_id" value="{{ staff_id }}">
+			</p>
+			<p>
+				<input type="submit" value="Update Rental">
+			</p>
+		</form>
+		<form action="{{ show_rental_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Show</button></form>
+		<form action="{{ index_rental_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block body %}
+	<table>
+		<thead>
+			<tr>
+				<th>Address</th>
+				<th>District</th>
+				<th>City id</th>
+				<th>Postal code</th>
+				<th>Phone</th>
+				<th>Last updated</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			{% for id, address, district, city_id, postal_code, phone, last_updated in addresses %}
+				<tr>
+					<td>{{ address }}</td>
+					<td>{{ district }}</td>
+					<td>{{ city_id }}</td>
+					<td>{{ postal_code }}</td>
+					<td>{{ phone }}</td>
+					<td>{{ last_updated }} UTC</td>
+					<td><form action="{{ show_address_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Show"></form></td>
+					<td><form action="{{ update_address_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Edit"></form></td>
+					<td><form action="{{ delete_address_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><input type="submit" value="Destroy"></form></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<br>
+	<a href="{{ create_address_link }}">New Address</a>
+{% endblock %}

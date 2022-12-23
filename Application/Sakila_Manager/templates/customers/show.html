@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% for id, store_id, first_name, last_name, email, address_id, active, create_date, last_update in customer %}
+		<p>
+			<strong>Store id</strong>
+			{{ store_id }}
+		</p>
+		<p>
+			<strong>First name</strong>
+			{{ first_name }}
+		</p>
+		<p>
+			<strong>Last name</strong>
+			{{ last_name }}
+		</p>
+		<p>
+			<strong>Email</strong>
+			{{ email }}
+		</p>
+		<p>
+			<strong>Address id</strong>
+			{{ address_id }}
+		</p>
+		<p>
+			<strong>Active</strong>
+			{{ active }}
+		</p>
+		<p>
+			<strong>Creation date</strong>
+			{{ create_date }} UTC
+		</p>
+		<p>
+			<strong>Last update</strong>
+			{{ last_update }} UTC
+		</p>
+		<form action="{{ update_customer_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Edit</button></form>
+		<form action="{{ index_customer_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

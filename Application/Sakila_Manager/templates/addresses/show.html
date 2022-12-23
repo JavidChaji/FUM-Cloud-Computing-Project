@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% for id, address, district, city_id, postal_code, phone, last_updated in address %}
+
+		<p>
+			<strong>Address:</strong>
+			{{ address }}
+		</p>
+		<p>
+			<strong>District</strong>
+			{{ district }}
+		</p>
+		<p>
+			<strong>City id</strong>
+			{{ city_id }}
+		</p>
+		<p>
+			<strong>Postal code</strong>
+			{{ postal_code }}
+		</p>
+		<p>
+			<strong>Phone</strong>
+			{{ phone }}
+		</p>
+		<p>
+			<strong>Last update:</strong>
+			{{ address.last_update }} UTC
+		</p>
+		
+		<form action="{{ update_address_link }}" method="POST"><input type="hidden" name="id" value="{{ id }}"><button type="submit">Edit</button></form>
+		<form action="{{ index_address_link }}" method="POST"><button type="submit">Back</button></form>
+	{% endfor %}		
+{% endblock %}

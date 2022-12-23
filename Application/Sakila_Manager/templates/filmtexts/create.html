@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<form action="{{ save_filmtext_link }}" method="post">
+		<p>
+			Title:<br>
+			<input name="title">
+		</p>
+		<p>
+			Description:<br>
+			<input name="description">
+		</p>
+		<p>
+			<input type="submit" value="Create Film Text"/>
+		</p>
+	</form>
+	<a href="{{ index_filmtext_link }}">Back</a>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+
+	<form action="{{ save_inventory_link }}" method="post">
+		<p>
+			Film Id:<br>
+			<input name="film_id">
+		</p>
+		<p>
+			Store Id:<br>
+			<input name="store_id">
+		</p>
+		<p>
+			<input type="submit" value="Create Inventory"/>
+		</p>
+	</form>
+	<a href="{{ index_inventory_link }}">Back</a>
+{% endblock %}
