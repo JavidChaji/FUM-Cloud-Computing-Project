@@ -1,0 +1,16 @@
+FROM python:latest
+
+ARG sakila_manager_port=5000
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE $sakila_manager_port
+
+CMD [ "python", "./main.py" ]
+
+
