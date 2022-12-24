@@ -312,7 +312,7 @@ Project Link: [https://github.com/javidchaji/Cloud-Computing-Project](https://gi
 <!-- License -->
 [license-shield]: https://img.shields.io/github/license/javidchaji/Cloud-Computing-Project.svg?style=for-the-badge
 
-[license-url]: https://github.com/javidchaji/Cloud-Computing-Project/blob/master/LICENSE.txt
+[license-url]: https://github.com/javidchaji/Cloud-Computing-Project/blob/master/LICENSE
 
 
 <!-- Linkedin -->
