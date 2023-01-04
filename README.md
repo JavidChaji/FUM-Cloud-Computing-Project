@@ -196,21 +196,21 @@ _For more examples, please refer to the [Documentation](https://example.com)_
   - >*Note* : First Task Can Have Extra Points For Architecture and Richer Configuration
 
       1. >WebServer must be able to host a Content of a Folder Outside of the Container
-          - [ ] Writing Dockerfile that can host a Content of a Folder Outside of the Container
+          - [x] Writing Dockerfile that can host a Content of a Folder Outside of the Container
       2. >Choosing a way of Configuring the WebServer (Like: copying in image, mounting a volume, etc.)
-          - [ ] ... is the one we are going to use in this project.
+          - [x] ... is the one we are going to use in this project.
 
 3. >Choose a Database image from [Docker Hub](https://hub.docker.com/) (Like: Elasticsearch, MySQL, MongoDB, etc.)
     * **MySQL** is the one we are going to use in this project.
     * Downloading Database Image From Docker Hub
-      - [ ] Downloading MySQL Image From Docker Hub
+      - [x] Downloading MySQL Image From Docker Hub
   - >*Note* : The related image configuration must written in docker-compose.yml file that have these four features :
       >1. >The Configuration file must be Stateful (Meaning that the data will be saved even if the container is removed)
       >2. >Each container must use Limited amount of resources (Like: CPU, Memory, etc.)
       >3. >For choosen database Define a separate username and password
       >4. >Need to run automatically after each system restart.
-      - [ ] Downloading The Database Image From Docker Hub
-      - [ ] The Related image Configuration must write 
+      - [x] Downloading The Database Image From Docker Hub
+      - [x] The Related image Configuration must write 
 4. >By using Pervious Step Dockerfile do the build opration note that both images must run together
     - [ ] Writing docker-compose.yml File 
 5. >Push the built image to Docker Hub
