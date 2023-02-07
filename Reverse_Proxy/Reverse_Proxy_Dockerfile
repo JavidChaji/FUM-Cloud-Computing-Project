@@ -1,6 +1,6 @@
 FROM nginx:latest 
 
-ARG reverse_proxy_main_port=80
+# ARG reverse_proxy_main_port=80
 ARG reverse_proxy_port_one=9001
 ARG reverse_proxy_port_two=9002
 
