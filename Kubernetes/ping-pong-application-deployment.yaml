@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: ping-pong-application-service
+  name: ping-pong-application-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: ping-pong-application-service
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.network/reverse-proxy-network: "true"
+        service: ping-pong-application-service
+    spec:
+      containers:
+        - image: javidchaji/ping-pong-application
+          name: ping-pong-application-container
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              cpu: 500m
+              memory: "52428800"
+            requests:
+              cpu: 250m
+              memory: "20971520"
+          tty: true
+      restartPolicy: Always
+status: {}
+
+---
+# ping-pong-application-service
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: ping-pong-application-service
+  name: ping-pong-application-service
+spec:
+  ports:
+    - name: "8000"
+      port: 8000
+      targetPort: 8000
+    - name: 8000-tcp
+      port: 8000
+      targetPort: 8000
+  selector:
+    service: ping-pong-application-service
+status:
+  loadBalancer: {}
+
