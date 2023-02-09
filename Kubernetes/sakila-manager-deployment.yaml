@@ -48,7 +48,7 @@ kind: Service
 metadata:
   labels:
     service: sakila-manager-service
-  name: sakila_manager
+  name: sakila-manager-service
 spec:
   ports:
     - name: "5000"
