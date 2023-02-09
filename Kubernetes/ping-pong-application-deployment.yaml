@@ -17,7 +17,7 @@ spec:
         service: ping-pong-application-service
     spec:
       containers:
-        - image: javidchaji/ping-pong-application
+        - image: cloud-computing-project_ping_pong_application
           name: ping-pong-application-container
           ports:
             - containerPort: 8000

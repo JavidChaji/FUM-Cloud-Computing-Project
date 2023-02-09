@@ -39,7 +39,7 @@ spec:
                 secretKeyRef:
                   name: sakila-database-secret
                   key: mysql-user-name
-          image: javidchaji/sakila_database
+          image: cloud-computing-project_database
           name: sakila-database-container
           ports:
             - containerPort: 3306

@@ -19,7 +19,7 @@ spec:
         service: sakila-manager-service
     spec:
       containers:
-        - image: javidchaji/sakila-manager
+        - image: cloud-computing-project_database
           name: sakila-manager-container
           ports:
             - containerPort: 5000
