@@ -45,9 +45,6 @@ spec:
     - name: "8000"
       port: 8000
       targetPort: 8000
-    - name: 8000-tcp
-      port: 8000
-      targetPort: 8000
   selector:
     service: ping-pong-application-service
 status:
