@@ -76,7 +76,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Repository
 
-Ferdowsi University of Mashhad Cloud-Computing-Project
+Ferdowsi University of Mashhad Cloud Computing Project
 
 [![Product Name Screen Shot][Product-Screenshot]](https://example.com)
 
