@@ -87,8 +87,7 @@ Ferdowsi University of Mashhad Cloud Computing Project
 
 ### Built With
 
-List of major frameworks/libraries used to bootstrap this project. 
-<!-- Leave any add-ons/plugins for the acknowledgements section. -->
+Technologies and Tools Utilized in this Project
 
 * [![Docker][Docker]][Docker-url]
 * [![Linux][Linux]][Linux-url]
