@@ -1,6 +1,4 @@
-
 <a name="readme-top"></a>
-
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -8,10 +6,10 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-
 [![LinkedIn][linkedin-shield]][-linkedin-url]
 [![LinkedIn][linkedin-shield]][-linkedin-url]
 [![LinkedIn][linkedin-shield]][javid-linkedin-url]
+
 
 
 <!-- PROJECT LOGO -->
@@ -292,6 +290,7 @@ Project Link: [https://github.com/javidchaji/Cloud-Computing-Project](https://gi
 
 [contributors-url]: https://github.com/javidchaji/Cloud-Computing-Project/graphs/contributors
 
+
 <!-- Forks -->
 [forks-shield]: https://img.shields.io/github/forks/javidchaji/Cloud-Computing-Project.svg?style=for-the-badge
 
@@ -324,6 +323,7 @@ Project Link: [https://github.com/javidchaji/Cloud-Computing-Project](https://gi
 [-linkedin-url]: https://linkedin.com/in/
 
 [javid-linkedin-url]: https://linkedin.com/in/javidchaji
+
 
 <!-- Product-Screenshot -->
 [Product-Screenshot]: images/screenshot.png
@@ -363,6 +363,7 @@ Project Link: [https://github.com/javidchaji/Cloud-Computing-Project](https://gi
 [Linux]: https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black
 
 [Linux-url]: https://www.linux.org/
+
 
 <!-- MySQL -->
 [MySQL]: https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white
